@@ -3,134 +3,1032 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donat Pelni | Donat Fresh Jakarta Barat</title>
+    <title>Donat Pelni | Donat Fresh Premium Jakarta Barat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #fff7f2;
-            color: #333;
+        :root {
+            --primary: #e67e22;
+            --primary-dark: #d35400;
+            --secondary: #2c3e50;
+            --light: #fef9f3;
+            --gray: #f5f5f5;
+            --text: #333333;
+            --success: #27ae60;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
         header {
-            background: #ff8c42;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 30px 20px;
+            padding: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 Z"></path></svg>');
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
             text-align: center;
         }
-        section {
-            padding: 30px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-        h2 {
-            color: #ff8c42;
-        }
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             gap: 15px;
+            margin-bottom: 10px;
         }
+
+        .logo-icon {
+            font-size: 2.8rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .logo-text h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* Navigation */
+        .cart-icon {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            background: white;
+            color: var(--primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--success);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About */
+        .about-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(230, 126, 34, 0.1) 0%, rgba(230, 126, 34, 0) 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Menu */
+        .menu-category {
+            margin-bottom: 50px;
+        }
+
+        .menu-category h3 {
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #eee;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
         .menu-item {
             background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
         }
-        .menu-item span {
-            font-weight: bold;
-            color: #ff8c42;
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
-        .cta {
-            text-align: center;
-            background: #ffe2d1;
-            padding: 30px 20px;
-            border-radius: 15px;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            background: #25D366;
-            color: white;
-            padding: 15px 25px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-        }
-        footer {
-            text-align: center;
+
+        .menu-item-content {
             padding: 20px;
-            font-size: 14px;
-            background: #ff8c42;
+        }
+
+        .menu-item-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .menu-item-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 15px 0;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 30px;
+            background: rgba(230, 126, 34, 0.1);
+        }
+
+        .menu-item-price:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .menu-item-price:active {
+            transform: scale(0.95);
+        }
+
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .add-to-cart:hover {
+            background: var(--primary-dark);
+        }
+
+        .menu-item-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--success);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+            z-index: 2000;
+            transition: right 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 25px;
+            background: var(--secondary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-size: 1.5rem;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-item-qty {
+            width: 40px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .cart-item-decrease, .cart-item-increase {
+            background: var(--gray);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .cart-item-decrease:hover, .cart-item-increase:hover {
+            background: var(--primary);
             color: white;
         }
-        a {
+
+        .cart-footer {
+            padding: 25px;
+            background: var(--gray);
+            border-top: 1px solid #ddd;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .cart-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cart-btn {
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .checkout-btn {
+            background: var(--success);
+            color: white;
+        }
+
+        .checkout-btn:hover {
+            background: #219653;
+        }
+
+        .clear-cart-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .clear-cart-btn:hover {
+            background: #c0392b;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            border-radius: 15px;
+            padding: 60px 40px;
+            margin: 40px auto;
+            max-width: 1000px;
+            box-shadow: var(--shadow);
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--success);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            margin-top: 20px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .logo-text h1 {
+                font-size: 2rem;
+            }
+            
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cart-icon {
+                top: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>🍩 Donat Pelni</h1>
-    <p>Donat Fresh Harian • Harga Ramah • Jakarta Barat</p>
-</header>
-
-<section>
-    <h2>Tentang Kami</h2>
-    <p>
-        Donat Pelni adalah UMKM donat rumahan yang menyajikan donat fresh setiap hari
-        dengan harga terjangkau. Berlokasi strategis <strong>dekat RS Pelni – Jakarta Barat</strong>,
-        cocok untuk camilan keluarga, teman kerja, maupun oleh-oleh.
-    </p>
-</section>
-
-<section>
-    <h2>Daftar Menu</h2>
-
-    <h3>Donat Klasik – Rp5.000</h3>
-    <div class="menu">
-        <div class="menu-item">Donat Gula Halus <span>Rp5.000</span></div>
-        <div class="menu-item">Cokelat Glaze <span>Rp5.000</span></div>
-        <div class="menu-item">Vanilla Glaze <span>Rp5.000</span></div>
-        <div class="menu-item">Strawberry Glaze <span>Rp5.000</span></div>
+    <!-- Cart Icon -->
+    <div class="cart-icon" id="cartToggle">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
     </div>
 
-    <h3>Donat Favorit – Rp6.000</h3>
-    <div class="menu">
-        <div class="menu-item">Cokelat Meses <span>Rp6.000</span></div>
-        <div class="menu-item">Keju Parut <span>Rp6.000</span></div>
-        <div class="menu-item">Matcha Glaze <span>Rp6.000</span></div>
-        <div class="menu-item">Cokelat Kacang <span>Rp6.000</span></div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-donut"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Donat Pelni</h1>
+                        <p>Donat Fresh Premium • Harga Terjangkau • Jakarta Barat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Keranjang Pesanan</h3>
+            <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be inserted here dynamically -->
+            <p style="text-align: center; padding: 40px 20px; color: #888;" id="emptyCartMessage">Keranjang belanja masih kosong</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">Rp 0</span>
+            </div>
+            <div class="cart-actions">
+                <button class="cart-btn checkout-btn" id="checkoutBtn">
+                    <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                </button>
+                <button class="cart-btn clear-cart-btn" id="clearCartBtn">
+                    <i class="fas fa-trash"></i> Kosongkan Keranjang
+                </button>
+            </div>
+        </div>
     </div>
 
-    <h3>Donat Premium – Rp7.000</h3>
-    <div class="menu">
-        <div class="menu-item">Cokelat Lumer <span>Rp7.000</span></div>
-        <div class="menu-item">Oreo Crunch <span>Rp7.000</span></div>
-        <div class="menu-item">Choco Cheese <span>Rp7.000</span></div>
-        <div class="menu-item">Strawberry Cream <span>Rp7.000</span></div>
-    </div>
-</section>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Donat Pelni</h2>
+            </div>
+            <div class="about-content">
+                <p>Donat Pelni adalah UMKM donat rumahan yang menyajikan donat fresh setiap hari dengan kualitas premium dan harga terjangkau. Kami berkomitmen untuk memberikan pengalaman terbaik dalam setiap gigitan donat kami.</p>
+                <div class="highlight">
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Lokasi Strategis:</strong> Dekat RS Pelni – Jakarta Barat</p>
+                    <p><i class="fas fa-clock"></i> <strong>Waktu Operasional:</strong> Setiap Hari, 08.00 - 20.00 WIB</p>
+                    <p><i class="fas fa-utensils"></i> <strong>Sajian:</strong> Cocok untuk camilan keluarga, teman kerja, maupun oleh-oleh</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="cta">
-    <h2>Pesan Sekarang</h2>
-    <p>
-        📍 Lokasi: Dekat RS Pelni – Jakarta Barat <br>
-        📦 Ready & Pre-Order
-    </p>
-    <a class="btn" href="https://wa.me/6287814530831" target="_blank">
-        💬 Pesan via WhatsApp (0878-1453-0831)
-    </a>
-    <p style="margin-top:20px;">
-        📸 Instagram: <a href="https://instagram.com/DonatPelni.id" target="_blank">@DonatPelni.id</a>
-    </p>
-</section>
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Menu Donat Kami</h2>
+            </div>
+            
+            <!-- Klasik -->
+            <div class="menu-category">
+                <h3>Donat Klasik</h3>
+                <div class="menu-grid">
+                    <!-- Items will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Favorit -->
+            <div class="menu-category">
+                <h3>Donat Favorit</h3>
+                <div class="menu-grid">
+                    <!-- Items will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Premium -->
+            <div class="menu-category">
+                <h3>Donat Premium</h3>
+                <div class="menu-grid">
+                    <!-- Items will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-    © 2026 Donat Pelni | Donat Fresh Jakarta Barat
-</footer>
+    <!-- CTA Section -->
+    <section id="cta">
+        <div class="container">
+            <div class="cta">
+                <h2>Pesan Donat Fresh Sekarang</h2>
+                <p>Donat Pelni siap memenuhi kebutuhan camilan Anda dengan donat fresh yang dibuat setiap hari. Pesan sekarang dan nikmati kelezatan donat premium dengan harga terjangkau.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dekat RS Pelni, Jakarta Barat</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>0878-1453-0831</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <span>@DonatPelni.id</span>
+                    </div>
+                </div>
+                
+                <a href="https://wa.me/6287814530831" class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-donut"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Donat Pelni</h1>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#about">Tentang Kami</a>
+                    <a href="#menu">Menu</a>
+                    <a href="https://wa.me/6287814530831" target="_blank">Pesan</a>
+                    <a href="https://instagram.com/DonatPelni.id" target="_blank">Instagram</a>
+                </div>
+                
+                <div class="copyright">
+                    © 2026 Donat Pelni | Donat Fresh Premium Jakarta Barat. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Data
+        const menuData = {
+            klasik: [
+                { id: 1, name: "Donat Gula Halus", price: 5000 },
+                { id: 2, name: "Cokelat Glaze", price: 5000 },
+                { id: 3, name: "Vanilla Glaze", price: 5000 },
+                { id: 4, name: "Strawberry Glaze", price: 5000 }
+            ],
+            favorit: [
+                { id: 5, name: "Cokelat Meses", price: 6000 },
+                { id: 6, name: "Keju Parut", price: 6000 },
+                { id: 7, name: "Matcha Glaze", price: 6000 },
+                { id: 8, name: "Cokelat Kacang", price: 6000 }
+            ],
+            premium: [
+                { id: 9, name: "Cokelat Lumer", price: 7000, badge: "Terlaris" },
+                { id: 10, name: "Oreo Crunch", price: 7000 },
+                { id: 11, name: "Choco Cheese", price: 7000, badge: "Baru" },
+                { id: 12, name: "Strawberry Cream", price: 7000 }
+            ]
+        };
+
+        // Cart State
+        let cart = JSON.parse(localStorage.getItem('donatPelniCart')) || [];
+        
+        // DOM Elements
+        const cartToggle = document.getElementById('cartToggle');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartTotal = document.getElementById('cartTotal');
+        const emptyCartMessage = document.getElementById('emptyCartMessage');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const clearCartBtn = document.getElementById('clearCartBtn');
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMenu();
+            updateCartDisplay();
+            
+            // Event Listeners
+            cartToggle.addEventListener('click', toggleCart);
+            closeCart.addEventListener('click', toggleCart);
+            checkoutBtn.addEventListener('click', checkout);
+            clearCartBtn.addEventListener('click', clearCart);
+            
+            // Close cart when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!cartSidebar.contains(event.target) && !cartToggle.contains(event.target) && cartSidebar.classList.contains('active')) {
+                    toggleCart();
+                }
+            });
+        });
+        
+        // Render menu items
+        function renderMenu() {
+            // Klasik
+            const klasikGrid = document.querySelectorAll('.menu-grid')[0];
+            menuData.klasik.forEach(item => {
+                klasikGrid.appendChild(createMenuItem(item));
+            });
+            
+            // Favorit
+            const favoritGrid = document.querySelectorAll('.menu-grid')[1];
+            menuData.favorit.forEach(item => {
+                favoritGrid.appendChild(createMenuItem(item));
+            });
+            
+            // Premium
+            const premiumGrid = document.querySelectorAll('.menu-grid')[2];
+            menuData.premium.forEach(item => {
+                premiumGrid.appendChild(createMenuItem(item));
+            });
+        }
+        
+        // Create menu item element
+        function createMenuItem(item) {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item';
+            menuItem.innerHTML = `
+                ${item.badge ? `<span class="menu-item-badge">${item.badge}</span>` : ''}
+                <div class="menu-item-content">
+                    <h3 class="menu-item-name">${item.name}</h3>
+                    <div class="menu-item-price" data-id="${item.id}">Rp ${item.price.toLocaleString('id-ID')}</div>
+                    <button class="add-to-cart" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">
+                        <i class="fas fa-plus"></i> Tambah ke Keranjang
+                    </button>
+                </div>
+            `;
+            
+            // Add click effect to price
+            const priceElement = menuItem.querySelector('.menu-item-price');
+            priceElement.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.05)';
+                }, 100);
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+                
+                // Show a notification
+                showNotification(`${item.name} - Rp ${item.price.toLocaleString('id-ID')}`);
+            });
+            
+            // Add to cart button
+            const addButton = menuItem.querySelector('.add-to-cart');
+            addButton.addEventListener('click', function() {
+                const id = parseInt(this.getAttribute('data-id'));
+                const name = this.getAttribute('data-name');
+                const price = parseInt(this.getAttribute('data-price'));
+                
+                addToCart(id, name, price);
+                
+                // Button feedback
+                this.innerHTML = '<i class="fas fa-check"></i> Ditambahkan';
+                this.style.background = '#27ae60';
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-plus"></i> Tambah ke Keranjang';
+                    this.style.background = '';
+                }, 1500);
+            });
+            
+            return menuItem;
+        }
+        
+        // Add item to cart
+        function addToCart(id, name, price) {
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            updateCartDisplay();
+            saveCartToStorage();
+            showNotification(`${name} ditambahkan ke keranjang`);
+        }
+        
+        // Update cart display
+        function updateCartDisplay() {
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart items list
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                emptyCartMessage.style.display = 'block';
+            } else {
+                emptyCartMessage.style.display = 'none';
+                
+                cart.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <div class="cart-item-price">Rp ${(item.price * item.quantity).toLocaleString('id-ID')}</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="cart-item-decrease" data-id="${item.id}">-</button>
+                            <span class="cart-item-qty">${item.quantity}</span>
+                            <button class="cart-item-increase" data-id="${item.id}">+</button>
+                        </div>
+                    `;
+                    
+                    // Add event listeners to quantity controls
+                    const decreaseBtn = cartItem.querySelector('.cart-item-decrease');
+                    const increaseBtn = cartItem.querySelector('.cart-item-increase');
+                    
+                    decreaseBtn.addEventListener('click', function() {
+                        updateQuantity(item.id, -1);
+                    });
+                    
+                    increaseBtn.addEventListener('click', function() {
+                        updateQuantity(item.id, 1);
+                    });
+                    
+                    cartItems.appendChild(cartItem);
+                });
+            }
+            
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+        }
+        
+        // Update item quantity
+        function updateQuantity(id, change) {
+            const itemIndex = cart.findIndex(item => item.id === id);
+            
+            if (itemIndex !== -1) {
+                cart[itemIndex].quantity += change;
+                
+                if (cart[itemIndex].quantity <= 0) {
+                    cart.splice(itemIndex, 1);
+                    showNotification("Item dihapus dari keranjang");
+                }
+                
+                updateCartDisplay();
+                saveCartToStorage();
+            }
+        }
+        
+        // Toggle cart sidebar
+        function toggleCart() {
+            cartSidebar.classList.toggle('active');
+        }
+        
+        // Checkout via WhatsApp
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification("Keranjang kosong, tambahkan item terlebih dahulu");
+                return;
+            }
+            
+            let message = "Halo Donat Pelni, saya ingin memesan:\n\n";
+            
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} - ${item.quantity} x Rp ${item.price.toLocaleString('id-ID')} = Rp ${(item.price * item.quantity).toLocaleString('id-ID')}\n`;
+            });
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            message += `\nTotal: Rp ${total.toLocaleString('id-ID')}\n\n`;
+            message += "Nama: \nAlamat: \nCatatan: ";
+            
+            const phone = "6287814530831";
+            const encodedMessage = encodeURIComponent(message);
+            const url = `https://wa.me/${phone}?text=${encodedMessage}`;
+            
+            window.open(url, '_blank');
+        }
+        
+        // Clear cart
+        function clearCart() {
+            if (cart.length === 0) {
+                showNotification("Keranjang sudah kosong");
+                return;
+            }
+            
+            if (confirm("Apakah Anda yakin ingin mengosongkan keranjang?")) {
+                cart = [];
+                updateCartDisplay();
+                saveCartToStorage();
+                showNotification("Keranjang dikosongkan");
+            }
+        }
+        
+        // Save cart to localStorage
+        function saveCartToStorage() {
+            localStorage.setItem('donatPelniCart', JSON.stringify(cart));
+        }
+        
+        // Show notification
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%) translateY(100px);
+                background: var(--primary);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 50px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 9999;
+                font-weight: 600;
+                transition: transform 0.3s ease;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-50%) translateY(0)';
+            }, 10);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-50%) translateY(100px)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
